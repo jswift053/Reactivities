@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import { server } from "typescript";
 import { ServerError } from "../models/serverError";
 
 export default class CommonStore {
