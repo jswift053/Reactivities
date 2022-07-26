@@ -78,7 +78,9 @@ namespace API
                 .FrameAncestors(s => s.Self())
                 .ImageSources(s => s.Self().CustomSources(
                     "https://res.cloudinary.com", 
-                    "https://www.facebook.com"
+                    "https://www.facebook.com",
+                    "data:",
+                    "https://platform-lookaside.fbsbx.com"
                     ))
                 .ScriptSources(s => s.Self().CustomSources(
                     "sha256-pBoSYRGEXZrqyTQv+zm5P9xzmBU3MtWJJ72+T5aiWu0=", 
