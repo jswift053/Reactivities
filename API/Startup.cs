@@ -64,12 +64,25 @@ namespace API
 
             app.UseCsp(opt => opt
                 .BlockAllMixedContent()
-                .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "https://cdn.jsdelivr.net"))
-                .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "https://cdn.jsdelivr.net", "data:"))
+                .StyleSources(s => s.Self().CustomSources(
+                    "https://fonts.googleapis.com", 
+                    "https://cdn.jsdelivr.net", 
+                    "sha256-yR2gSI6BIICdRRE2IbNP1SJXeA5NYPbaM32i/Y8eS9o="
+                    ))
+                .FontSources(s => s.Self().CustomSources(
+                    "https://fonts.gstatic.com", 
+                    "https://cdn.jsdelivr.net", 
+                    "data:"
+                    ))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
-                .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com"))
-                .ScriptSources(s => s.Self())
+                .ImageSources(s => s.Self().CustomSources(
+                    "https://res.cloudinary.com", 
+                    "https://www.facebook.com"
+                    ))
+                .ScriptSources(s => s.Self().CustomSources(
+                    "sha256-pBoSYRGEXZrqyTQv+zm5P9xzmBU3MtWJJ72+T5aiWu0=", 
+                    "https://connect.facebook.net"))
             );
 
             if (env.IsDevelopment())

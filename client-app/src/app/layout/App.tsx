@@ -17,7 +17,7 @@ import ModalContainer from '../common/modals/ModalContainer';
 import ProfilePage from '../../features/profiles/ProfilePage';
 import PrivateRoute from './PrivateRoute';
 
-function App() {
+export default observer(function App() {
   const location = useLocation();
   const {commonStore, userStore} = useStore();
 
@@ -25,7 +25,7 @@ function App() {
     if (commonStore.token) {
       userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
-      commonStore.setAppLoaded();
+      userStore.getFacebookLoginStatus().then(() => commonStore.setAppLoaded);
     }
   }, [commonStore, userStore])
 
@@ -57,6 +57,4 @@ function App() {
       />         
     </>
   );
-}
-
-export default observer(App);
+})
