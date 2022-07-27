@@ -84,7 +84,8 @@ namespace API
                     ))
                 .ScriptSources(s => s.Self().CustomSources(
                     "sha256-pBoSYRGEXZrqyTQv+zm5P9xzmBU3MtWJJ72+T5aiWu0=", 
-                    "https://connect.facebook.net"))
+                    "https://connect.facebook.net"
+                    ))
             );
 
             if (env.IsDevelopment())
