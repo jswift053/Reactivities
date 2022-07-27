@@ -76,7 +76,7 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                             <Comment.Content>
                                 <Comment.Author as={Link} to={`/profiles/${comment.username}`}>{comment.displayName}</Comment.Author>
                                 <Comment.Metadata>
-                                    <div>{formatDistance(new Date(comment.createdAt), new Date())} ago</div>
+                                    <div>{formatDistanceToNow(new Date(comment.createdAt))} ago</div>
                                 </Comment.Metadata>
                                 <Comment.Text style={{whiteSpace: 'pre-wrap'}}>{comment.body}</Comment.Text>
                             </Comment.Content>
