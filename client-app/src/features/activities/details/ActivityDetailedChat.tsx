@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {Segment, Header, Comment, Loader} from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import * as Yup from 'yup';
-import { formatDistanceToNow } from 'date-fns/esm';
+import { formatDistance, formatDistanceToNow } from 'date-fns/esm';
 
 interface Props {
     activityId: string;
@@ -76,7 +76,7 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                             <Comment.Content>
                                 <Comment.Author as={Link} to={`/profiles/${comment.username}`}>{comment.displayName}</Comment.Author>
                                 <Comment.Metadata>
-                                    <div>{formatDistanceToNow(comment.createdAt).toString()} ago</div>
+                                    <div>{formatDistance(new Date(comment.createdAt), new Date())} ago</div>
                                 </Comment.Metadata>
                                 <Comment.Text style={{whiteSpace: 'pre-wrap'}}>{comment.body}</Comment.Text>
                             </Comment.Content>
